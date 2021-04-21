@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript">
+window.onload = function () {
+	var chart = new CanvasJS.Chart("chartContainer",
+	{
+		title:{
+			text: "Attaching Click event on dataSeries"
+		},
+		data: [
+		{
+			type: "column",
+			click: onClick,
+			dataPoints: [
+				{ x: 5, y: 71},
+				{ x: 10, y: 55},
+				{ x: 15, y: 50 },
+				{ x: 20, y: 65 },
+				{ x: 25, y: 95 },
+				{ x: 30, y: 68 },
+				{ x: 35, y: 28 },
+				{ x: 40, y: 34 },
+				{ x: 45, y: 14}
+			]
+		},
+		]
+	});
+	chart.render();
+
+	function onClick(e) {
+		alert(  e.dataSeries.type + ", dataPoint { x:" + e.dataPoint.x + ", y: "+ e.dataPoint.y + " }" );
+	}
+}
+</script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</head>
+<body>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+</body>
+</html>
